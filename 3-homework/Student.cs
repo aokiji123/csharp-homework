@@ -107,5 +107,16 @@
         }
     }
 
+    public double GetAverageGrade()
+    {
+        double totalGrades = homeworkGrades.Sum() + projectGrades.Sum() + examGrades.Sum();
+        double totalGradeCount = homeworkGrades.Length + projectGrades.Length + examGrades.Length;
+        return totalGrades / totalGradeCount;
+    }
+
+    public override string ToString()
+    {
+        return FirstName + " " + SecondName;
+    }
 }
 
