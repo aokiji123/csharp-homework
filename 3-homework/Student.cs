@@ -1,4 +1,4 @@
-﻿public class Student
+﻿internal class Student : IComparable<Student>
 {
 	private string firstName;
 	private string secondName;
@@ -153,7 +153,66 @@
 
     public override string ToString()
     {
-        return FirstName + " " + SecondName;
+        string homeworkGrades = ""; foreach (int grade in HomeworkGrades) homeworkGrades += grade + " ";
+        string finalworkGrades = ""; foreach (int grade in ProjectGrades) finalworkGrades += grade + " ";
+        string examsGrades = ""; foreach (int grade in ExamGrades) examsGrades += grade + " ";
+        string result = $"Full name: {SecondName} {FirstName} {ThirdName}\nDate of birth: {BirthDay.ToShortDateString()}\nAddress: {Address.ToString()}\nPhone number: {PhoneNumber}\nHomework grades: {homeworkGrades}\nFinalwork grades: {finalworkGrades}\nExam grades: {examsGrades}";
+        return result;
+    }
+
+    public int CompareTo(Student other)
+    {
+        if (this == other) return 0;
+        if (this > other) return 1;
+        else return -1;
+    }
+
+    public class SortByHomework : IComparer<Student>
+    {
+        public int Compare(Student firstStudent, Student secondStudent)
+        {
+            if (firstStudent.homeworkGrades.Average() == secondStudent.homeworkGrades.Average())
+            {
+                return 0;
+            }
+            if (firstStudent.homeworkGrades.Average() > secondStudent.homeworkGrades.Average())
+            {
+                return 1;
+            }
+            else return -1;
+        }
+    }
+
+    public class SortByFinalWork : IComparer<Student>
+    {
+        public int Compare(Student firstStudent, Student secondStudent)
+        {
+            if (firstStudent.projectGrades.Average() == secondStudent.projectGrades.Average())
+            {
+                return 0;
+            }
+            if (firstStudent.projectGrades.Average() > secondStudent.projectGrades.Average())
+            {
+                return 1;
+            }
+            else return -1;
+        }
+    }
+
+    public class SortByExamsWork : IComparer<Student>
+    {
+        public int Compare(Student firstStudent, Student secondStudent)
+        {
+            if (firstStudent.examGrades.Average() == secondStudent.examGrades.Average())
+            {
+                return 0;
+            }
+            if (firstStudent.examGrades.Average() > secondStudent.examGrades.Average())
+            {
+                return 1;
+            }
+            else return -1;
+        }
     }
 }
 

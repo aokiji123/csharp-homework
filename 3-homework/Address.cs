@@ -60,18 +60,31 @@
     public override bool Equals(object obj)
     {
         Address obj2 = obj as Address;
-        if (obj == null) return false;
-        return (obj2.street == this.street && obj2.city == this.city &&
-            obj2.state == this.state && obj2.zipCode == this.zipCode);
+        if (obj == null)
+        {
+            return false;
+        }
+        return (obj2.street == this.street && obj2.city == this.city && obj2.state == this.state && obj2.zipCode == this.zipCode);
     }
 
     public static bool operator ==(Address address, Address address2)
     {
-        if (ReferenceEquals(address, address2)) return true;
-        if ((object)address != null) return address.Equals(address2);
-        if ((object)address2 != null) return address2.Equals(address);
-        return (address.street == address2.street && address.city == address2.city &&
-            address.state == address2.state && address.zipCode == address2.zipCode);
+        if (ReferenceEquals(address, address2))
+        {
+            return true;
+        }
+        if ((object)address != null)
+        {
+            return address.Equals(address2);
+        }
+        if ((object)address2 != null)
+        {
+            return address2.Equals(address);
+        }
+        return (address.street == address2.street && address.city == address2.city && address.state == address2.state && address.zipCode == address2.zipCode);
     }
-    public static bool operator !=(Address address1, Address address2) { return !(address1 == address2); }
+    public static bool operator !=(Address address1, Address address2)
+    {
+        return !(address1 == address2);
+    }
 }

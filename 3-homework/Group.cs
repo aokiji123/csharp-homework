@@ -1,4 +1,6 @@
-﻿public class Group
+﻿using System.Collections;
+
+internal class Group : IEnumerable<Student>
 {
     private List<Student> students;
     private string groupName;
@@ -201,5 +203,79 @@
         Student lowestPerformingStudent =
             students.OrderBy(student => student.GetAverageGrade()).First();
         students.Remove(lowestPerformingStudent);
+    }
+
+    public Student this[int i]
+    {
+        get
+        {
+            if (i >= 0 && i < Students.Count)
+            {
+                return Students[i];
+            }
+            else if (i < 0 && i >= -Students.Count)
+            {
+                return Students[Students.Count + i];
+            }
+            else throw new InvalidGroup("Index out of range");
+        }
+        set
+        {
+            if (i >= 0 && i < Students.Count)
+            {
+                Students[i] = value;
+            }
+            else if (i < 0 && i >= -Students.Count)
+            {
+                Students[Students.Count + i] = value;
+            }
+            else throw new InvalidGroup("Index out of range");
+        }
+    }
+
+    public Student this[string name, string surname]
+    {
+        get
+        {
+            if (students.Any(student => student.FirstName == name))
+            {
+                foreach (Student student in Students)
+                {
+                    if (student.FirstName == name && student.SecondName == surname)
+                    {
+                        return student;
+                    }
+                }
+            }
+            throw new InvalidGroup($"Student {name} {surname} not found");
+        }
+        set
+        {
+            List<Student> studentsCopy = new List<Student>(Students); bool studentFound = false;
+            for (int i = 0; i < studentsCopy.Count; i++)
+            {
+                if (studentsCopy[i].FirstName == name && studentsCopy[i].SecondName == surname)
+                {
+                    students[i] = value; studentFound = true; break;
+                }
+            }
+            if (!studentFound)
+                throw new InvalidGroup($"Student {name} {surname} not found");
+        }
+    }
+
+    public IEnumerator<Student> GetEnumerator()
+    {
+        return students.GetEnumerator();
+    }
+
+    IEnumerator IEnumerable.GetEnumerator()
+    {
+        return ((IEnumerable)students).GetEnumerator();
+    }
+
+    public void Sort(IComparer<Student> sortType)
+    {
+        students.Sort(sortType);
     }
 }

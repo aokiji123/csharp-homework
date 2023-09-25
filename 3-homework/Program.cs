@@ -14,7 +14,7 @@
         );
 
         Student student2 = new Student(
-            "Bohdan2", "Bohdanov2", "Bohdanovich2",
+            "Alexey", "Alexeyev", "Alexeyevich",
             new DateTime(2004, 2, 5),
             new Address("Ostrava",
                 "Dukelska", "Moravskoslezsky kraj", "65300"),
@@ -25,7 +25,7 @@
         );
 
         Student student3 = new Student(
-           "Bohdan", "Bohdanov", "Bohdanovich",
+           "Alexandr", "Alexandrov", "Alexandrovich",
            new DateTime(2006, 2, 5),
            new Address("Ostrava",
                "Dukelska", "Moravskoslezsky kraj", "65300"),
@@ -33,16 +33,34 @@
            new int[] { 10, 8, 9, 12, 10, 10 },
            new int[] { 11, 11 },
            new int[] { 12, 12, 11, 11 }
-       );
+        );
 
-        Console.WriteLine(student.Address == student2.Address); // true
-        Console.WriteLine(student == student2); // false
-        Console.WriteLine(student == student3); // true
-        Console.WriteLine(student != student3); // false
-        Console.WriteLine(student < student2); // false
-        Console.WriteLine(student > student2); // true
-        Console.WriteLine(student <= student3); // true
-        Console.WriteLine(student >= student3); // true
+
+        Group TestGroup = new Group(new List<Student> { student, student2 });
+        Console.WriteLine($"{TestGroup[0].ToString()}\n");
+        Console.WriteLine($"{TestGroup[-1].ToString()}\n");
+        Console.WriteLine($"{TestGroup["Alexey", "Alexeyev"].ToString()}\n");
+
+        TestGroup[0] = student3;
+        Console.WriteLine($"{TestGroup[0].ToString()}\n");
+        TestGroup[0] = student;
+
+        TestGroup[-1] = student3;
+        Console.WriteLine($"{TestGroup[-1].ToString()}\n");
+        TestGroup[-1] = student2;
+
+        TestGroup["Alexey", "Alexeyev"] = student3;
+        Console.WriteLine($"{TestGroup["Alexandr", "Alexandrov"].ToString()}\n");
+        TestGroup["Alexandr", "Alexandrov"] = student;
+
+        //Console.WriteLine(student.Address == student2.Address); // true
+        //Console.WriteLine(student == student2); // false
+        //Console.WriteLine(student == student3); // true
+        //Console.WriteLine(student != student3); // false
+        //Console.WriteLine(student < student2); // false
+        //Console.WriteLine(student > student2); // true
+        //Console.WriteLine(student <= student3); // true
+        //Console.WriteLine(student >= student3); // true
 
         //    try
         //    {
