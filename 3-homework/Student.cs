@@ -114,6 +114,43 @@
         return totalGrades / totalGradeCount;
     }
 
+    public int GetAverageHomeworkGrade()
+    {
+        int result = 0;
+        if (HomeworkGrades.Length != 0)
+        {
+            foreach (int grade in HomeworkGrades) result += grade;
+            result /= HomeworkGrades.Length;
+        }
+        return result;
+    }
+
+    public override bool Equals(object obj)
+    {
+        Student obj2 = obj as Student;
+        if (obj == null) return false;
+        return (obj2.secondName == this.secondName && obj2.firstName == this.firstName &&
+            obj2.thirdName == this.thirdName && obj2.birthDay == this.birthDay &&
+            obj2.address == this.address && obj2.phoneNumber == this.phoneNumber);
+    }
+
+    public static bool operator ==(Student student, Student student2)
+    {
+        if (ReferenceEquals(student, student2)) return true;
+        if ((object)student != null) return student.Equals(student2);
+        if ((object)student2 != null) return student2.Equals(student);
+        return (student.secondName == student2.secondName && student.firstName == student2.firstName &&
+            student.thirdName == student2.thirdName && student.birthDay == student2.birthDay &&
+            student.address == student2.address && student.phoneNumber == student2.phoneNumber);
+    }
+    public static bool operator !=(Student student1, Student student2) { return !(student1 == student2); }
+    public static bool operator <(Student student1, Student student2) { return student1.GetAverageHomeworkGrade() < student2.GetAverageHomeworkGrade(); }
+    public static bool operator >(Student student1, Student student2) { return student1.GetAverageHomeworkGrade() > student2.GetAverageHomeworkGrade(); }
+    public static bool operator <=(Student student1, Student student2) { return student1.GetAverageHomeworkGrade() <= student2.GetAverageHomeworkGrade(); }
+    public static bool operator >=(Student student1, Student student2) { return student1.GetAverageHomeworkGrade() >= student2.GetAverageHomeworkGrade(); }
+    public static bool operator true(Student student) { return (student.GetAverageHomeworkGrade() >= 7); }
+    public static bool operator false(Student student) { return (student.GetAverageHomeworkGrade() < 7); }
+
     public override string ToString()
     {
         return FirstName + " " + SecondName;
