@@ -1,0 +1,15 @@
+/Users/mac/Desktop/projects/csharp-homework/5-homework/obj/Debug/net7.0/5-homework.csproj.AssemblyReference.cache
+/Users/mac/Desktop/projects/csharp-homework/5-homework/obj/Debug/net7.0/5-homework.GeneratedMSBuildEditorConfig.editorconfig
+/Users/mac/Desktop/projects/csharp-homework/5-homework/obj/Debug/net7.0/5-homework.AssemblyInfoInputs.cache
+/Users/mac/Desktop/projects/csharp-homework/5-homework/obj/Debug/net7.0/5-homework.AssemblyInfo.cs
+/Users/mac/Desktop/projects/csharp-homework/5-homework/obj/Debug/net7.0/5-homework.csproj.CoreCompileInputs.cache
+/Users/mac/Desktop/projects/csharp-homework/5-homework/bin/Debug/net7.0/5-homework
+/Users/mac/Desktop/projects/csharp-homework/5-homework/bin/Debug/net7.0/5-homework.deps.json
+/Users/mac/Desktop/projects/csharp-homework/5-homework/bin/Debug/net7.0/5-homework.runtimeconfig.json
+/Users/mac/Desktop/projects/csharp-homework/5-homework/bin/Debug/net7.0/5-homework.dll
+/Users/mac/Desktop/projects/csharp-homework/5-homework/bin/Debug/net7.0/5-homework.pdb
+/Users/mac/Desktop/projects/csharp-homework/5-homework/obj/Debug/net7.0/5-homework.dll
+/Users/mac/Desktop/projects/csharp-homework/5-homework/obj/Debug/net7.0/refint/5-homework.dll
+/Users/mac/Desktop/projects/csharp-homework/5-homework/obj/Debug/net7.0/5-homework.pdb
+/Users/mac/Desktop/projects/csharp-homework/5-homework/obj/Debug/net7.0/5-homework.genruntimeconfig.cache
+/Users/mac/Desktop/projects/csharp-homework/5-homework/obj/Debug/net7.0/ref/5-homework.dll
