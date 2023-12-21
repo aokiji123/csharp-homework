@@ -1,14 +1,18 @@
-﻿internal class Student : IComparable<Student>
+﻿using _3_homework;
+
+internal class Student : IComparable<Student>
 {
-	private string firstName;
-	private string secondName;
-	private string thirdName;
-	private DateTime birthDay;
-	private Address address;
+    private string firstName;
+    private string secondName;
+    private string thirdName;
+    private DateTime birthDay;
+    private Address address;
     private string phoneNumber;
     private int[] homeworkGrades;
     private int[] projectGrades;
     private int[] examGrades;
+
+    public StudentKeyListener keyListener = new StudentKeyListener();
 
     public Student
         (string firstName, string secondName, string thirdName, DateTime birthDay, Address address,
@@ -23,10 +27,19 @@
         this.homeworkGrades = homeworkGrades;
         this.projectGrades = projectGrades;
         this.examGrades = examGrades;
+
+        keyListener.OnEnter += Select;
+        keyListener.OnSpace += Jump;
+        keyListener.OnEscape += Sleep;
+        keyListener.OnF1 += Info;
+        keyListener.OnLeft += Move;
+        keyListener.OnRight += Move;
+        keyListener.OnUp += Move;
+        keyListener.OnDown += Move;
     }
 
     public Student(string firstName, string secondName, string thirdName, DateTime dateOfBirth, Address homeAddress, string phoneNumber)
-        : this(firstName, secondName, thirdName, dateOfBirth, homeAddress, phoneNumber, null, null, null) {}
+        : this(firstName, secondName, thirdName, dateOfBirth, homeAddress, phoneNumber, null, null, null) { }
 
     public string FirstName
     {
@@ -214,5 +227,46 @@
             else return -1;
         }
     }
-}
 
+    private void Select(string msg)
+    {
+        Console.WriteLine($"You selected {firstName} {secondName} student");
+    }
+
+    private void Jump(string msg)
+    {
+        Console.WriteLine($"{firstName} is jumping!");
+    }
+
+    private void Sleep(string msg)
+    {
+        Console.WriteLine($"{firstName} is sleeping...");
+    }
+
+    private void Info(string msg)
+    {
+        DisplayStudentInfo();
+        Console.WriteLine();
+    }
+
+    private void Move(string msg)
+    {
+        switch (msg)
+        {
+            case "Right":
+                Console.WriteLine($"{firstName} is moving right.");
+                break;
+            case "Left":
+                Console.WriteLine($"{firstName} is moving left.");
+                break;
+            case "Up":
+                Console.WriteLine($"{firstName} is moving up.");
+                break;
+            case "Down":
+                Console.WriteLine($"{firstName} is moving down.");
+                break;
+            default:
+                break;
+        }
+    }
+}

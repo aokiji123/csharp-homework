@@ -125,5 +125,22 @@
         //    {
         //        Console.WriteLine(e + "\n");
         //    }
+
+        Console.WriteLine("\nPress key from the list:");
+        Console.WriteLine(
+            "Space: Jump\n" +
+            "Enter: Select\n" +
+            "Escape: Sleep\n" +
+            "Up, Down, Right, Left: Move\n" +
+            "F1: Info\n"
+        );
+        while (true)
+        {
+            if (Console.KeyAvailable)
+            {
+                var key = Console.ReadKey(true).Key;
+                student.keyListener.Listen(key);
+            }
+        }
     }
 }
