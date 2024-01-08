@@ -1,0 +1,5 @@
+/Users/mac/Desktop/projects/csharp-homework/10-homework/obj/Debug/net7.0/10-homework.csproj.AssemblyReference.cache
+/Users/mac/Desktop/projects/csharp-homework/10-homework/obj/Debug/net7.0/10-homework.GeneratedMSBuildEditorConfig.editorconfig
+/Users/mac/Desktop/projects/csharp-homework/10-homework/obj/Debug/net7.0/10-homework.AssemblyInfoInputs.cache
+/Users/mac/Desktop/projects/csharp-homework/10-homework/obj/Debug/net7.0/10-homework.AssemblyInfo.cs
+/Users/mac/Desktop/projects/csharp-homework/10-homework/obj/Debug/net7.0/10-homework.csproj.CoreCompileInputs.cache
